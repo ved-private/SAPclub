@@ -387,7 +387,6 @@ function HomeContent({ setActive, darkMode, stats, uid, isMobile }) {
           )}
         </div>
       </div>
-      <SAPModulesSection darkMode={darkMode} />
       {/* Footer */}
       <div style={{ 
         textAlign: "center", 
