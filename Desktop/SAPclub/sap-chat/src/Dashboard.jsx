@@ -387,10 +387,22 @@ function HomeContent({ setActive, darkMode, stats, uid, isMobile }) {
           )}
         </div>
       </div>
+      <SAPModulesSection darkMode={darkMode} />
+      {/* Footer */}
+      <div style={{ 
+        textAlign: "center", 
+        fontSize: "11px", 
+        color: "#3A5070",
+        marginTop: "60px",
+        paddingTop: "30px",
+        paddingBottom: "20px",
+        borderTop: "1px solid rgba(255,255,255,0.06)"
+      }}>
+        <p style={{ margin: "0" }}>© 2026 SAPclub. MIT License. Built by Vedraj</p>
+      </div>
     </div>
   );
 }
-
 /* ── DOUBTS PAGE ──────────────────────────────────────── */
 function DoubtsPage({ darkMode }) {
   const [tab, setTab] = useState("ask");
