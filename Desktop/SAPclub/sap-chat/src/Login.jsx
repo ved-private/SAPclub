@@ -14,9 +14,13 @@ styleEl.textContent = `
   .login-root {
     min-height: 100vh;
     background: linear-gradient(135deg, #070C1A 0%, #0A1024 40%, #0D1535 100%);
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-family: 'Outfit', sans-serif;
-    position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
   }
   .login-root::before {
     content: ''; position: absolute; top: -200px; left: -200px;
@@ -132,6 +136,28 @@ styleEl.textContent = `
     transition: color 0.2s;
   }
   .eye-btn:hover { color: #F0F4FF; }
+  .login-footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+    text-align: center;
+    animation: cardIn 0.7s ease;
+  }
+  .login-footer p {
+    font-size: 11px;
+    color: #2E3F5C;
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+  }
+  .login-footer .brand {
+    color: #3A5070;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .login-footer .dot {
+    margin: 0 6px;
+    color: #1E2D44;
+  }
 `;
 
 if (!document.head.querySelector("#login-premium-styles")) {
@@ -159,13 +185,26 @@ const saveUserToFirestore = async (user, sapId) => {
   }
 };
 
+const Footer = () => (
+  <div className="login-footer">
+    <p>
+      <span className="brand">SAPclub™</span>
+      <span className="dot">·</span>
+      © 2026
+      <span className="dot">·</span>
+      MIT License
+    </p>
+    <p>Built by Vedraj</p>
+  </div>
+);
+
 export default function Login() {
   const [sapId, setSapId]       = useState("");
   const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
   const [isSignup, setIsSignup] = useState(false);
   const [showPass, setShowPass]   = useState(false);
-  const [step, setStep]         = useState("sap");   // sap → auth
+  const [step, setStep]         = useState("sap");
   const [error, setError]       = useState("");
   const [info, setInfo]         = useState("");
   const [loading, setLoading]   = useState(false);
@@ -177,7 +216,6 @@ export default function Login() {
     setError(""); setStep("auth");
   };
 
-  // ── Google OAuth ──────────────────────────────────────
   const handleGoogle = async () => {
     setLoading(true); setError("");
     try {
@@ -189,7 +227,6 @@ export default function Login() {
     setLoading(false);
   };
 
-  // ── Email / Password ──────────────────────────────────
   const handleEmailAuth = async () => {
     if (!email.trim() || !password.trim()) { setError("Please fill all fields."); return; }
     if (password.length < 6) { setError("Password must be at least 6 characters."); return; }
@@ -199,7 +236,6 @@ export default function Login() {
         const cred = await createUserWithEmailAndPassword(auth, email, password);
         await sendEmailVerification(cred.user);
         await saveUserToFirestore(cred.user, sapId);
-        // Sign out until verified
         await auth.signOut();
         setInfo("✅ Account created! Check your email and verify your address, then sign in.");
         setIsSignup(false); setPassword("");
@@ -208,10 +244,9 @@ export default function Login() {
         if (!cred.user.emailVerified) {
           await auth.signOut();
           setError("Email not verified. Check your inbox and click the verification link.");
-          await sendEmailVerification(cred.user); // resend just in case
+          await sendEmailVerification(cred.user);
         } else {
           await saveUserToFirestore(cred.user, sapId);
-          // App.jsx onAuthStateChanged handles redirect
         }
       }
     } catch (err) {
@@ -246,6 +281,8 @@ export default function Login() {
             Continue →
           </button>
         </div>
+
+        <Footer />
       </div>
     );
   }
@@ -268,7 +305,6 @@ export default function Login() {
         {info  && <div className="info-msg">{info}</div>}
         {error && <div className="error-msg">{error}</div>}
 
-        {/* Email fields */}
         <div className="field-wrap">
           <label className="field-label">Email</label>
           <input className="login-input" placeholder="you@gmail.com / you@college.edu" value={email}
@@ -295,7 +331,6 @@ export default function Login() {
 
         <div className="divider-row">or</div>
 
-        {/* Google */}
         <button className="google-btn" onClick={handleGoogle} disabled={loading}>
           <svg width="17" height="17" viewBox="0 0 48 48">
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
@@ -317,17 +352,8 @@ export default function Login() {
           </p>
         )}
       </div>
-      <div style={{ 
-  textAlign: "center", 
-  fontSize: "11px", 
-  color: "#3A5070",
-  marginTop: "40px",
-  paddingTop: "20px",
-  borderTop: "1px solid rgba(255,255,255,0.06)"
-}}>
-  <p>© 2026 SAPclub. MIT License.</p>
-  <p style={{ marginTop: "4px" }}>Built by Vedraj</p>
-</div>
+
+      <Footer />
     </div>
   );
 }
