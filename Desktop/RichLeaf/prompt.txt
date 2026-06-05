@@ -1,0 +1,28 @@
+help me make an app (offline) to record where the money is going.. so the main idea is to click a pic and immediately a pop up form will come of no. where only no. keyboard will pop up and then the price of the thing in pic will be recorded.. a daily.. weekly.. monthly.. and yearly.. follow-up would be available in the app.. the app could identify the object in the image to categories it in like food.. grocerries.. any kinda bills.. precision upto.. if i take a pic of food it will go to food.. and if i take 2 bills one of food and one any kinda technical bill the model or the app could identify and categories the food bill into food and tech bill into bills category.. in future based on the categorial money spent suggestion would be given within the app.. make it available to go in the app manually and record some expense manually like i go in app in food category and record 1000rs. it would be then simply summed up for the follow up.. it would be like a fun app in which we take a snap just we put a no. to get the followup of the money spent where? in the future and control it afterwards.. keep it simple with great ui.. maybe with the help of vs code.. firebase.. or anything to identify the object or the bill to categorise it .. the app should mainly have a button of clic a pic .. record manually and see my records.. first two are clear the third one would have  option of daily weekly monthly or yearly.. put your ideas inyo it too.. talk to me in short and tell me what to do.
+
+yes ofc i wanna make it soo simple like just open.. click.. put the no. enter and enjoy whatever you're having.. or maybe suffer if it is a medical bill but atleast you have a record where your money is going if you really care about it
+
+major issues in ui.. and snap and record me camera nhi khula.. btw ha snap lene ke baad ek preview bhi dikhana hai taki clear pic se app sahi category me expense record kr sake.. vrna vo record others me jayega..
+
+ok wait let us be simple.. vo identifiction wala rehne dete.. apn vaha buttons add kr denge and let the user decide ki usko kaha daalna hai  with a great ui in both light and dark mode.. with google authorization jisse agr unka device change hua to bhi record rahega.. categories mai baadme bataunga.. and as i said offline hi rahega app sab record hoga and jab net chalu karega user tab ke tab sara data sync ho jayega uske google account me..
+
+food 
+groceries
+bills
+medical
+investment
+clothes
+appliances 
+transport
+others.
+let there be a button jisse koi user apna khudka custom default category bhi add kr sakta.. 
+aisa kr ab manual hi hora sab to 2 hi option rakh main hompage pr.. and niche corner me account ya profile ka rakh i mean google se jo krre apn..
+ui plss accha kr.. and jo maine pehle prompt dia vo bhi dhyan rakh..
+
+aisa kr snap lena bhi optional rakh like record ka option.. and report ka option jisme sab recorded chie dikhegi.. and  pehle option record me snap optional.. vo saare category and amount and notes bhi phir confirm.. and report me aisa kuch option bhi rakhna report me jisse ek click me expense report download ho jaye currentlu jaha tk hua hai and daily weekly monthly and yearly sab alag alag.. pdf bhi acchi honi chahiye.. mera upar bataya hua bhi sab yaad rakhna .. sab sab krna hai.. ab banana start kr..aur bata ky karu short me
+
+Offline sync — net aane par auto sync
+PDF download — abhi HTML download ho raha hai, proper PDF banana hai
+
+ui claymorphism krle accha wala
+
