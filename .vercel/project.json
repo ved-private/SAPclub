@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_oA2q94DnHV1DLVS6ZnCUlhXv3h3d",
+  "orgId": "team_WZef0BiKKLFJ3SIllBXsKq72",
+  "projectName": "sap-chat",
+  "settings": {
+    "createdAt": 1778410444578,
+    "framework": "vite",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}
